@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>App</title>
+    <style>
+     .red-text { color: red; }
+    </style>
+  </head>
+  <body>
+    <table class="user-table">
+        <thead>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Birth date</th>
+            <th>Balance</th>
+            <th>Is active</th>
+        </thead>
+        <tbody>
+            <% for (let user of users) { %>
+                <tr>
+                    <td title="<%= (user.birthYear <= 2000 ? "E" : "Not e") + "ligible for discount." %>">
+                        <%= user.name %>
+                    </td>
+                    <td><%= user.genderStr %></td>
+                    <td><%= user.birthDateStr %></td>
+                    <td class="<%= user.balance < 0 ? "red-text" : "" %>">
+                        <%= user.balance %>
+                    </td>
+                    <td><%= user.activeStr %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+  </body>
+</html>
